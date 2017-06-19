@@ -1,20 +1,33 @@
 import mysql from 'mysql2'
-import { _ } from 'lodash'
+// import { _ } from 'lodash'
 
-class Json2mysql {
+export default class Json2mysql {
   constructor (opts) {
-    this._dbconnection = mysql.createConnection({
+    console.log('opts', opts)
+    this._connection = mysql.createConnection({
       host: opts.host,
       user: opts.user,
       database: opts.database
     })
   }
-  convert (tableName, jsonFile) {
+
+  async convert (tableName, jsonFile) {
     console.log(tableName)
     console.log(jsonFile)
-    const str = `select * from ${tablename} order by id`
-    this._dbconnection.query(sql, (err, results) => {
-      console.log(results)
-    })
+    // let updateSqls = []
+    // let insertSqls = []
+    const connection = await this._connection.connect()
+    console.log(connection)
+
+    if (Array.isArray(jsonFile)) {
+      for (let obj of jsonFile) {
+        if (obj.id) {
+          const [rows] = await connection.execute(`SELECT 1 FROM ${tableName} where id = ${obj.id}`)
+          console.log(rows)
+        }
+      }
+    }
   }
 }
+
+module.exports = exports.default
