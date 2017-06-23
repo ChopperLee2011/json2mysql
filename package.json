@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "pretest": "standard",
-    "test": "mocha --compilers js:babel-register --require babel-polyfill",
+    "test": "mocha --compilers js:babel-register",
     "build": "babel --optional runtime src -d dist",
     "postbuild": "npm test -s",
     "changelog": "github-changes -o ChopperLee2011 -r json2mysql",
@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "bluebird": "^3.5.0",
     "debug": "^2.6.8",
     "lodash": "^4.17.4",
     "mysql2": "^1.3.5"
