@@ -1,5 +1,26 @@
+sudo: required
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.4.2
+
 language: node_js
 node_js:
   - 7
   - 6
-  - 4
+
+services:
+  - docker
+
+cache: yarn
+
+before_install:
+  - docker-compose up -d
+
+install:
+  - yarn install
+
+script:
+  - npm test
+
+notifications:
+  email: false

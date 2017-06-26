@@ -23,6 +23,21 @@ import json2mysql from "json2mysql"
 json2mysql() // true
 ```
 
+## Test
+1. `docker-compose up -d ` will create database container
+2. create a test table in your database
+
+ ```sql
+CREATE TABLE `user` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `name` text,
+  `team_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+```
+
+3. `npm test`
+
 ## License
 
 MIT © [chopperlee]

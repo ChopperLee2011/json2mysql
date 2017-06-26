@@ -24,7 +24,7 @@ export default class Json2mysql {
     return columnObj
   }
 
-  convert (tableName, file) {
+  load (tableName, file) {
     const origins = require(file)
     let _conn
     return this._conn
