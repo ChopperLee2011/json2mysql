@@ -3,7 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads][download-badge]][npm-url]
-[![Code Style][standard-image][standard-url]]
+[![Code Style][standard-image]][standard-url]]
 
 A tool to **load** a JSON/JS object file to Mysql.
 
@@ -31,8 +31,7 @@ jm.replace(tableName, file)
 
 ## Test
 1. `docker-compose up -d ` will create database container
-2. create a test table in your database
-
+2. create a test table in your database:
  ```sql
 CREATE TABLE `user` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -41,7 +40,6 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
-
 3. `npm test`
 
 ## License
@@ -56,4 +54,5 @@ MIT © [chopperlee]
 
 [download-badge]: http://img.shields.io/npm/dm/json2mysql.svg?style=flat-square
 
-[standard]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
