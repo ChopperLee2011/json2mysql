@@ -3,7 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads][download-badge]][npm-url]
-[![Code Style][standard-image]][standard-url]]
+[![Code Style][standard-image]][standard-url]
 
 A tool to **load** a JSON/JS object file to Mysql.
 
@@ -30,17 +30,17 @@ jm.replace(tableName, file)
  - `replace`: this will replace table rows with json file, by comparing table id with array index
 
 ## Test
-1. `docker-compose up -d ` will create database container
-2. create a test table in your database:
+ - `docker-compose up -d ` will create database container
+ - create a test table in your database:
  ```sql
-CREATE TABLE `user` (
-  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `name` text,
-  `team_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+   CREATE TABLE `user` (
+      `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+      `name` text,
+      `team_id` int(11) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
-3. `npm test`
+ - `npm test`
 
 ## License
 
