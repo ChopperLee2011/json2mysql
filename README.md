@@ -5,9 +5,7 @@
 [![Downloads][download-badge]][npm-url]
 [![Code Style][standard-image][standard-url]]
 
-A tool to **remove** all records in one Mysql table and load from a JSON/JS object file.
-
-**note** It will disable foreign key check when remove data, an enable after loading finish.
+A tool to **load** a JSON/JS object file to Mysql.
 
 ## Install
 
@@ -20,8 +18,16 @@ npm i json2mysql
 ```js
 import json2mysql from "json2mysql"
 
-json2mysql() // true
+const dbconfig = {}
+const jm = json2mysql(dbconfig)
+jm.load(tableName, file)
+jm.replace(tableName, file)
+
 ```
+
+## Methods
+ - `load`: this will disable foreign key, **remove** table rows , then load json and enable foreign key 
+ - `replace`: this will replace table rows with json file, by comparing table id with array index
 
 ## Test
 1. `docker-compose up -d ` will create database container
