@@ -38,6 +38,20 @@ export default class Json2mysql {
       .then(() => _conn.query('set foreign_key_checks = 1'))
       .catch(err => console.log(err))
   }
+
+  replace (tableName, file) {
+    const origins = require(file)
+    let _conn
+    return this._conn
+      .then(conn => {
+        _conn = conn
+        return Promise.mapSeries(origins, (d, i) => {
+          d.id = i + 1
+          const statement = this.propsToColumn(d)
+          return _conn.query(`insert into ${tableName} set ?  on duplicate key update ? `, [statement, statement])
+        })
+      })
+  }
 }
 
 module.exports = exports.default

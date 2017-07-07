@@ -26,4 +26,13 @@ describe('json2mysql', () => {
         expect(res).to.be.an('array')
       })
   })
+
+  it('can replace JSON file to mysql ', () => {
+    expect(j2m).to.be.an('object')
+    const jsonFile = path.join(__dirname, './users.json')
+    return j2m.replace('user', jsonFile)
+      .then(res => {
+        expect(res).to.be.an('array')
+      })
+  })
 })
