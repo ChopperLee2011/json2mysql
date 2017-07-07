@@ -1,6 +1,6 @@
 {
   "name": "json2mysql",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A tool for comparing your configure json file with mysql table, then Loaded",
   "main": "dist/index.js",
   "scripts": {
